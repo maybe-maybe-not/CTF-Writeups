@@ -5,11 +5,20 @@ The description for this challenge says
 
 > Maybe this "Ng Eng Siang Kurt" has a social media or something?
 
-Looking up the username NgEngSiangKurt on username lookup, we see that the account is taken on instagram. https://www.instagram.com/NgEngSiangKurt/. 
-On the first post, we see in the search bar contains the link https://shorturl.at/krA04. It leads us to an image which contains a left half of a qr code \
+Looking up the username NgEngSiangKurt on username lookup, we see that the account is taken on instagram. https://www.instagram.com/NgEngSiangKurt/.
+
+Lets look at the first post on this instagram \
+![image](https://user-images.githubusercontent.com/42673064/159195221-23f9a193-6606-49e0-973b-cd9dc8480e1f.png)
+
+We see in the search bar contains the link https://shorturl.at/krA04. It leads us to an image which contains a left half of a qr code \
 ![image](https://user-images.githubusercontent.com/42673064/159193555-0a559717-9c17-4b3b-9111-deb24eaa808a.png)
 
-Looking at the comments of the post, we see that there is an account called not_alien_123. This account is private but the description of the profile says to find them on TikTok. Looking up the username on tiktok, we see one post, it looks like a normal video of a lava cake, but one frame of the video contains the right half of the qr code \
+Looking at the comments of the post, we see that there is an account called not_alien_123. 
+![image](https://user-images.githubusercontent.com/42673064/159195304-3a1d1763-cab1-4dcb-9aa1-edd5cb918ca3.png)
+
+This account is private but the description of the profile says to find them on TikTok. On TikTok, there is only 1 [video](https://vt.tiktok.com/ZSd8PLo8h/?k=1) and it seems like a normal video of a lava cake.
+
+However there is one frame in the video which contains the right side of the qr code, cropping it we get \
 ![image](https://user-images.githubusercontent.com/42673064/159193685-d6a0dde0-8fc2-4d77-aea3-c96f219f396f.png)
 
 Combining the qr codes together, we get \
@@ -45,7 +54,7 @@ At the end of the pastebin, we see a bunch of hex
 Decoding from hex we get
 `VGhlIGh1bWFuIGFwcGVhcnMgdG8gYmUgbmFtZWQgTGV3aXMsIHN0dWR5aW5nIGF0IGEgbG9jYWwgdW5pdmVyc2l0eSBoZXJlLgoKSGUgYmVsaWV2ZSB0aGF0ICJhbGllbiIgZXhpc3RzLCBhbmQgbWF5IGhhdmUgYWxlcnRlZCBoaXMgZnJpZW5kcyBhYm91dCB1cy4KCldpbGwgbmVlZCBtb3JlIG9wZXJhdG9ycyBzZW5kIHRvIHByb3ZpZGUgZGVmZW5zZSB3aXRoIHJlZ3VsYXIgInJvdGF0aW9uIi4KCkFzIGFsd2F5cywgNDcgYW5kIEtIZGhYMkZoVEVVNVlqQmtRV00wWWxNd00ySkZTR0ppUHpCRk9XSXdVMFZqUTA0PS4=`
 
-Decoding from base64 we get
+This is an obvious base64 string, so decoding it we get this paragraph
 ```
 The human appears to be named Lewis, studying at a local university here.
 
@@ -55,5 +64,4 @@ Will need more operators send to provide defense with regular "rotation".
 
 As always, 47 and KHdhX2FhTEU5YjBkQWM0YlMwM2JFSGJiPzBFOWIwU0VjQ04=.
 ```
-
-Now all we have to do is decode from base64 on the string `KHdhX2FhTEU5YjBkQWM0YlMwM2JFSGJiPzBFOWIwU0VjQ04=.` and then rot47 to get the flag `WH2022{th3_5p4c3$_b3tw33n_th3_$t4r}`
+The last line of the paragraph contains yet another base64 string and also mentions '47', thus it is likely we also need to perform rot47 after decoding it from base64. After performing this, we get the flag `WH2022{th3_5p4c3$_b3tw33n_th3_$t4r}`
