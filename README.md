@@ -5,8 +5,9 @@ CTF writeups for team 🙂maybe🙂maybe not🙂 \
 We are noob 🙂 still learning 🙂
 
 ## Placements
-* VU Cyberthon 2022: #10 place
-* dvCTF 2022: #32 place
-* SMU Whitehacks 2022: #10 place       
+* VU Cyberthon 2022:        #10 place
+* dvCTF 2022:               #32 place
+* SMU Whitehacks 2022:      #10 place    
+* Cyberthon 2022:           #6 place   
 --------------------------------------------------
 
