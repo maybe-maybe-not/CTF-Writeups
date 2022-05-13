@@ -1,6 +1,11 @@
-## [CSIT] ZZZ XenophobicTea
-#### Written by Halogen, m0n0valu3nce and scuffed <3
-
+# [CSIT] ZZZ XenophobicTea
+Written by Halogen, m0n0valu3nce and scuffed <3
+## Problem Statement
+> We have found the encryption program that APOCALYPSE uses to send encrypted messages.  
+  >
+> It comes with a key checker module which is helpful but... it does not come with the decryption module... zzz...  
+  
+Wait a minute, this encryption algorithm looks familiar...
 Using ghidra, we can easily decompile the code and find this very useful section of the code.
 ```c
 bool keyVerification(byte *param_1) {

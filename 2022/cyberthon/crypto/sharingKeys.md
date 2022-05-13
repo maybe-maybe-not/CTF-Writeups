@@ -1,13 +1,12 @@
-## Sharing Keys
-#### Written by m0n0valu3nce
-
-### __Problem statement__
+# Sharing Keys
+Written by m0n0valu3nce
+## __Problem statement__
 > Some packets from APOCALYPSE got caught.
 > 
 > Looks like some [DHKE exchange](https://en.wikipedia.org/wiki/Diffie–Hellman_key_exchange#General_overview).
 > 
 > Get to the bottom of this!
-
+## Solution
 We are provided with some web packets outlining a conversation between 2 people. After using wireshark to extract the conversation, this is what we are presented with. 
 
 ```
@@ -67,4 +66,4 @@ pt = cipher.decrypt(ct)
 print(pt)
 ```
 
-> Cyberthon{0neSt3p@taT1me_3c2ae4fa12edbeff}'
+Flag: `Cyberthon{0neSt3p@taT1me_3c2ae4fa12edbeff}`

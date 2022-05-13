@@ -1,13 +1,12 @@
-## Old World Ciphers
-#### Written by m0n0valu3nce
-
-### __Problem statement__
+# Old World Ciphers
+Written by m0n0valu3nce
+## __Problem statement__
 > Look at the attached leaked source code.
 >
 > APOCALYPSE seems to be combining old world ciphers to form a slightly harder cipher.
 >
 >  Try decrypting the flag. Good Luck!
-
+## Solutions
 ```py
 import math
 alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
@@ -80,4 +79,4 @@ temp = ''.join(blocks)
 print("temp is: " + temp)
 ```
 
-> cyberthon{simple_but_effective_e18f0791aeff12aaa}
+Flag: `cyberthon{simple_but_effective_e18f0791aeff12aaa}`

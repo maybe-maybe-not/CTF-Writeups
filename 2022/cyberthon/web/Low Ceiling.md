@@ -9,6 +9,7 @@ Written by Halogen
 Since there is almost nothing on the site, I decided to check out common files.
 [http://chals.cyberthon22f.ctf.sg:40301/robots.txt](http://chals.cyberthon22f.ctf.sg:40301/robots.txt) gives a result.
 > User-agent: *
+> 
 > Disallow:dev
 
 As we can see, the website does not "want" us to see this `dev` file

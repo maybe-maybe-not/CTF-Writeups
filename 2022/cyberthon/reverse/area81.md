@@ -1,10 +1,12 @@
-## Area 81
-#### Written by Halogen and m0n0valu3nce
-
+# Area 81
+Written by Halogen and m0n0valu3nce
+## Problem Statement
 > Our intel suggests that APOCALYPSE's HQ is located at a highly secured facility called Area 81. Getting through their external fortifications isn't a problem because we can all just naruto run all the way to their entrance. However, there is an digital panel at the entrance that requires a passcode.
 >
 > We need you to reverse engineer the program, and find the correct passcode!
-
+## Provided Files
+[Area81.jar](./assets/Area81.jar)
+## Solution
 There is two parts to this challenge, finding the code and doing the actual reverse.
 
 Firstly, we decompile the `.jar` file. This part is pretty simple, since we got IntelliJ on our side.
@@ -117,7 +119,6 @@ public class WeirdGlyphs {
     }  
 }
 ```
-
 From here, we are to reverse the following code in `enocdeData()`, such that the output matches the string in `main`:
 ```java
 ArrayList encode = new ArrayList();
@@ -214,6 +215,6 @@ To reverse this, we shall do the following on Cyberchef:
 `reverse -> from_binary -> reverse`
 Note that this is the case, as `cur_val = (byte)(cur_val + ((chr >> 7 - j & 1) << j));` merely reverses the bits in every byte. (minus `-` gets processed before the rightshift)
 
-We get: `5t0Rm_4p0c4lyp53_hq_th3y_c4nt_5t0p_4LL_0f_u5`
+Doing the reversal we get `5t0Rm_4p0c4lyp53_hq_th3y_c4nt_5t0p_4LL_0f_u5`
 
-> Cyberthon{5t0Rm_4p0c4lyp53_hq_th3y_c4nt_5t0p_4LL_0f_u5}
+Flag: `Cyberthon{5t0Rm_4p0c4lyp53_hq_th3y_c4nt_5t0p_4LL_0f_u5}`
