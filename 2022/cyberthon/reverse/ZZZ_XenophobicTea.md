@@ -99,5 +99,34 @@ void encodeKey(void)
     return;
 }
 ```
-
-[scuffed, insert your half completed reverse code?]
+The code is... very ugly. We do some renaming work in Ghidra so that it's a bit more presentable.
+```c
+for (c = 0; c < 4; c = c + 1) {
+    4_int_key[c] =
+         (uint)enc_key[c << 2] << 0x18 | (uint)enc_key[c * 4 + 1] << 0x10 |
+         (uint)enc_key[c * 4 + 2] << 8 | (uint)enc_key[c * 4 + 3];
+}
+```
+This is the first part of the code which comes up with some key composed of 4 unsigned ints, which we use in the later encryption function.
+Most of the code is actually just setting size information, opening files and finally a sweep of the file to encrypt in 8 byte intervals.
+```c
+void FUN_001011d5(byte *param_1,int *key){
+  uint i;
+  int modifier;
+  uint int_2;
+  uint int_1;
+  
+  int_1 = *(uint *)param_1;
+  int_2 = *(uint *)(param_1 + 4);
+  modifier = 0;
+  for (i = 0; i < 32; i = i + 1) {
+    modifier = modifier + -1640531527;
+    int_1 = int_1 + (key[1] + (int_2 >> 5) ^ int_2 * 0x10 + key[0] ^ modifier + int_2);
+    int_2 = int_2 + (key[3] + (int_1 >> 5) ^ int_1 * 0x10 + key[2] ^ modifier + int_1);
+  }
+  *(uint *)param_1 = int_1;
+  *(uint *)(param_1 + 4) = int_2;
+  return;
+}
+```
+And... this is where we stopped. Our brainpower was just a bit too small to find out the inverse of this xor function in order to decrypt the flag. Cringe!
