@@ -6,7 +6,58 @@
 [elixir_of_the_malware_whisperer.pdf](./assets/elixir_of_the_malware_whisperer.pdf)
 ## Solution
 Likely some embeded JS inside the file... But how do we get it out?
-<reminder to check my zsh history lol>
+
+We wanna look through whatever objects the pdf may contain first, so we use [pdfid.py](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pdfid.py)
+
+```
+❯ python pdfid.py elixir_of_the_malware_whisperer.pdf
+PDFiD 0.2.8 elixir_of_the_malware_whisperer.pdf
+ PDF Header: %PDF-1.4
+ obj                  187
+ endobj               187
+ stream                14
+ endstream             14
+ xref                   2
+ trailer                2
+ startxref              2
+ /Page                  2
+ /Encrypt               0
+ /ObjStm                0
+ /JS                    1
+ /JavaScript            2
+ /AA                    0
+ /OpenAction            0
+ /AcroForm              0
+ /JBIG2Decode           0
+ /RichMedia             0
+ /Launch                0
+ /EmbeddedFile          0
+ /XFA                   0
+ /Colors > 2^24         0
+
+```
+That JS section looks pretty relevant.
+
+Using the script [pdf-parser.py](https://github.com/DidierStevens/DidierStevensSuite/blob/master/pdf-parser.py) we first search for JS and see what it gives us
+
+```
+❯ python pdf-parser.py --search JS elixir_of_the_malware_whisperer.pdf
+obj 183 0
+ Type:
+ Referencing: 184 0 R
+
+  <<
+    /JS 184 0 R
+    /S /JavaScript
+  >>
+```
+
+We can see there's a reference to object 184, so let's dump the raw contents of it
+
+```
+❯ python pdf-parser.py --object 184 --raw --filter elixir_of_the_malware_whisperer.pdf > pdf.js
+```
+
 The final JS obtained is 
 ```js
 var flag = [0xcb, 0xb, 0x15, 0x41, 0x7a, 0xaa, 0xef, 0xd7, 0xff, 0xdd, 0x66, 0x18, 0x69, 0xe, 0x23, 0x59, 0xe6, 0xc2, 0xe6, 0xc, 0xd, 0xee, 0x7, 0x6c, 0xfd, 0x85, 0x66, 0xbe, 0xd5, 0x9b, 0x8f, 0x6e, 0x69, 0x58, 0xe6, 0x88, 0x93, 0x5, 0x4e, 0x63, 0x4a, 0x8d, 0x1c, 0x5b, 0x4, 0x57, 0x81, 0x4d, 0x57, 0x2b, 0x8, 0xf8, 0xf1, 0xbb, 0x1e, 0xd8, 0x96, 0x6a, 0xd0, 0x97, 0x9d, 0x8a, 0x37,
