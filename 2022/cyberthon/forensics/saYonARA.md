@@ -83,6 +83,6 @@ $Hi JamEs, lets protect the world from devastation and unite all people within t
 </assembly>
  ,�����������ء���Ȣ��p���������%
 ```
-Let's just decode that Base64 string...
-<reminder to go and look for the correct flag, it looks like what i put in discord isn't correct...>
-Flag: `CTF{m4y83_m4y83_n07}`
+Let's just decode that Base64 string and then spam ROT13 with different offsets
+
+Flag: `Cyberthon{0_wt9_beth2V_best444}`
