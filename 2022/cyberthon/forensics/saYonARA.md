@@ -68,6 +68,31 @@ rule base64_ascii_ascii {
 }
 ```
 Very cool. We run `yara -r yara.rule ./transmitted/` (using `-r` for recursive searching) and just look through all the files we get.
+
+```
+❯ yara -r yara.rule ./transmitted/
+base64_ascii_ascii ./transmitted//transmitted/7c67cNFEp3/Av3hKWkE32/yYMoIOlFC.exe
+base64_ascii_ascii ./transmitted//transmitted/7c67cNFEp3/FZQGGhY/9kDbFXn/r2T2TX2De.exe
+base64_ascii_ascii ./transmitted//transmitted/7c67cNFEp3/FZQGGhY/yYETeOg4c34/CiFF7H5WTmt/NrplXjIZ2.exe
+base64_ascii_ascii ./transmitted//transmitted/7c67cNFEp3/Hx7RytrcpzY/Arp47g5/hojXDVijA.zip
+base64_ascii_ascii ./transmitted//transmitted/7c67cNFEp3/l0VkDKg9P5/kyLkncaL/qNECIuRdM0/s=20K7q4UB.exe
+base64_ascii_ascii ./transmitted//transmitted/7c67cNFEp3/ruRWCjQ/8hDSsaL2x41/DJO=yFB/ytmoxGzI.exe
+base64_ascii_ascii ./transmitted//transmitted/7c67cNFEp3/VmF3Wady/8Yq2Hd22/ZD2QoUBNyOa/Z5xTrAts.exe
+base64_ascii_ascii ./transmitted//transmitted/BYpu3yuK/Ljo39YbboJs/24oDvy5/sYufklwhu9/1d8KOqNsE.exe
+base64_ascii_ascii ./transmitted//transmitted/BYpu3yuK/Ljo39YbboJs/nLCexqRv/wZ4SOFykL/jB94XVyWB.exe
+base64_ascii_ascii ./transmitted//transmitted/BYpu3yuK/Ljo39YbboJs/w2zH3FT/85Ft8QfYvC.exe
+base64_ascii_ascii ./transmitted//transmitted/BYpu3yuK/VMIGFoP/k89t9qK/F0sZ36IL.exe
+base64_ascii_ascii ./transmitted//transmitted/BYpu3yuK/X6nnnOhc44/rvwsqdt3/IEWkjd3/3j9RQzEPmZt.exe
+base64_ascii_ascii ./transmitted//transmitted/DIubtbn/0mEtLW3/HoA1LGlp3/OcrYDK6MO0I.exe
+base64_ascii_ascii ./transmitted//transmitted/DIubtbn/4Q2ZtO5kS/uuj6vICCZg/33NUUwamvtj/ny=Hhm9GguZ.exe
+base64_ascii_ascii ./transmitted//transmitted/DIubtbn/ED22vjohH/GlBgD8aq3pt/UIVifPv.exe
+base64_ascii_ascii ./transmitted//transmitted/EcxusLbj/B0oJUsi=a/lbs0xDe/dpEUZmSR/CNfTdjCC.exe
+base64_ascii_ascii ./transmitted//transmitted/FDzqDGRd80/uTnOF4D=w5/E6Rg1AFf1/iqiHJInlhgD.exe
+base64_ascii_ascii ./transmitted//transmitted/FDzqDGRd80/uTnOF4D=w5/77LlYOwP41/buOfQcU7.exe
+base64_ascii_ascii ./transmitted//transmitted/nrCB9lP/4p=nsfv/0SIhv1utg3/iSOO6Lqfjuq/HxHdu69.exe
+base64_ascii_ascii ./transmitted//transmitted/nrCB9lP/baoWSEln/2bbalEi7/wY3rZbTro/3L=5R5j.exe
+```
+
 With a very limited search pool, we cat out the file `transmitted/7c67cNFEp3/Av3hKWkE32/yYMoIOlFC.exe` and get the following
 ```
 MZ����@���      �!�L�!This program cannot be run in DOS mode.
