@@ -9,5 +9,6 @@ We are noob 🙂 still learning 🙂
 * dvCTF 2022:               #32 place
 * SMU Whitehacks 2022:      #10 place    
 * Cyberthon 2022:           #6 place   
+* DSTA CDDC 2022:           #1 place 
 --------------------------------------------------
 
