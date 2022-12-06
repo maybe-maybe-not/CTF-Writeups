@@ -53,6 +53,6 @@ print(solve(eqs, dict = True))
 
 Wait a second, this gives me infinite solutions (in terms of $R_4$). We need more information. Luckily, if you tried entering any value for $R_3$ you would notice that they give the corresponding $V_D$ and another attempt! We can plug our values for $R_3$ and $V_D$ in as well, solving for $R_4$
 
-Knowing $R_4$ we now plug that value in and get $R_3$. Enter that and we have stabalised the quantum core, saving Jaga!
+Knowing $R_4$ we now plug that value in (remember to reset $V_D$ to $0$) and get $R_3$ our answer to stabalised the quantum core, saving Jaga!
 
 Flag: `STF22{L0ng_Qu8ntum_3hift}`

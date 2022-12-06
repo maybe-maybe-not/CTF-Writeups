@@ -8,7 +8,7 @@ This had 0 solves until the admin dropped their insane hint
 
 So after being given the compare string code, Woah! Look at all the asyncio.sleep. Wonder if we could exploit that?🤔oh we could, with a side channel attack called timing attack!
 
-The idea is we brute force our admin and password smartly, by checking the time it took to process our wrong username/password. First we brute force the length of the string, then each individual character, starting from the front.
+The idea is we brute force our admin and password smartly, by checking the time it took to process our wrong username/password. If it took longer, it was probably more "correct". First we brute force the length of the string as that is checked first, then each individual character, starting from the front.
 
 **Sample Script (for `pwd`)**
 ```python
