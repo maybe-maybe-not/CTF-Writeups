@@ -1,8 +1,6 @@
 # extended
 by Halogen
 > Problem Description
-## Provided Files
-[Link under assets](./assets/)
 ## Solution
 Some Methods, maybe images inserted under `./assets`
 
