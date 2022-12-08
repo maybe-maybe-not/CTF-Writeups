@@ -44,12 +44,12 @@ Now we see that we cannot just replace uid with the SQL injection as there is a 
 A length extension attack can be done on `sha-256`, the hashing algorithm used to check against `sig`. It is basically crypto magic, and if you want to find out the details you can go [here](https://en.wikipedia.org/wiki/Length_extension_attack).
 Here is how it works. 
 > **The Attack**
-> Using $M$ and $HASH(SECRET . M)$ and the length of $SECRET$.
+> Using $M$ and $HASH(SECRET . M)$ and the length of $SECRET$. \
 > We can use get $HASH(SECRET.M.PADDING.E)$. 
 > 
-> $M$ is the original message, here it is the `uid`
-> $SECRET$ is the secret string, which also appears here
-> $PADDING$ is just some specific characters to perform the attack.
+> $M$ is the original message, here it is the `uid` \
+> $SECRET$ is the secret string, which also appears here \
+> $PADDING$ is just some specific characters to perform the attack. \
 > $E$ is our message to append, which will be our SQL injection.
 
 Using a [library](https://github.com/stephenbradshaw/hlextend) we found, we can perform the length extension attack and get our SQL injection signed. As for the lenght of $SECRET$, we just brute forced, since it is only from 16 to 32, and found that it works when the length is 28.
@@ -67,7 +67,7 @@ for i in range(16, 33):
 	) + '|' + sha.hexdigest()).text)
 ```
 
-Afterwards we inserted our SQL injection (finally) and get our flag.
+Afterwards we inserted our SQL injection (finally) and get our flag. \
 SQL Injection: `' UNION SELECT flag, flag, flag, flag, flag FROM j4g4_us3rs WHERE role=1--`
 ![extended_success.png](./assets/extended_success.png)
 Flag: `STF22{h4sh_l3ngth_1nj3ct10n_1s_4w3s0m3}`
