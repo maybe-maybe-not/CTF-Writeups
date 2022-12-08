@@ -80,10 +80,10 @@ async def handler(reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
                         f"Congrats! You have pulled a {gacha}!\n".encode(),
                         GACHAS[gacha],
                         b"Here are the stats of your character:\n",
-                        f"STR: {num>>24 & 0xff}\n".encode(),
-                        f"DEX: {num>>16 & 0xff}\n".encode(),
-                        f"INT: {num>>8 & 0xff}\n".encode(),
-                        f"LUK: {num & 0xff}\n".encode(),
+                        f"STR: {num>>48 & 0xffff}\n".encode(),
+                        f"DEX: {num>>32 & 0xffff}\n".encode(),
+                        f"INT: {num>>16 & 0xffff}\n".encode(),
+                        f"LUK: {num & 0xffff}\n".encode(),
                         b'\n',
                     )
                 )
