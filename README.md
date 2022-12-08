@@ -10,5 +10,6 @@ We are noob 🙂 still learning 🙂
 * SMU Whitehacks 2022:      #10 place    
 * Cyberthon 2022:           #6 place   
 * DSTA CDDC 2022:           #1 place 
+* Jaga STF 2022:            #2 place
 --------------------------------------------------
 
