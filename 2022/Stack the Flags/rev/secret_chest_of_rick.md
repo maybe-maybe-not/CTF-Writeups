@@ -171,61 +171,49 @@ Yuck. Let's step through the code.
 *(undefined *)_Src = 0;
 *_Src = *param_1;
 
+// first 5 characters of param_1
 *(undefined *)(_Src + 1) = *(undefined *)(param_1 + 1);
-*(undefined *)((int)_Src + 5) = 0;
+*(undefined *)((int)_Src + 5) = 0; 
 
+// next 5 characters of param_1
 *(undefined *)_Src_00 = 0;
 *_Src_00 = *(undefined4 *)((int)param_1 + 5);
-
-
 *(undefined *)(_Src_00 + 1) = *(undefined *)((int)param_1 + 9);
 *(undefined *)((int)_Src_00 + 5) = 0;
 
-
+// next 5 characters of param_1
 *(undefined *)puVar2 = 0;
 *puVar2 = *(undefined4 *)((int)param_1 + 10);
-
-
 *(undefined *)(puVar2 + 1) = *(undefined *)((int)param_1 + 14);
 *(undefined *)((int)puVar2 + 5) = 0;
 
+// next 5 characters of param_1
 *(undefined *)puVar3 = 0;
 *puVar3 = *(undefined4 *)((int)param_1 + 15);
-
-
 *(undefined *)(puVar3 + 1) = *(undefined *)((int)param_1 + 19);
 *(undefined *)((int)puVar3 + 5) = 0;
 ```
 
-What we see here is the input string `param_1` being split into sets of 5 characters.
+What we see here is the input string `param_1` being split into sets of 5 characters and being stored in `_Src_00`, `puVar2` and `puVar3`. I should've renamed these variables in ghidra, but this is readable enough.
 
-```
+```c
 FUN_100010a0(local_6c,100,"%s",(char) puVar2 );
 strcat_s(_Dst,100,local_6c);
-
-
 FUN_100010a0(local_6c,100,"%s",(char) _Src + '\x02');
-
-
 strcat_s(_Dst,100,local_6c);
 strncpy_s(local_6c,100,(char *)_Src_00,2);
 strcat_s(_Dst,100,local_6c);
-
 FUN_100010a0(local_6c,100,"%s",(char)puVar3 + '\x01');
 strcat_s(_Dst,100,local_6c);
-
-
 FUN_100010a0(local_6c,100,"%c",*(undefined *)puVar3);
 strcat_s(_Dst,100,local_6c);
-
 strncpy_s(local_6c,100,(char *)_Src,2);
-
 uVar5 = SUB41(_Src,0);
 strcat_s(_Dst,100,local_6c);
 strncpy_s(local_6c,100,(char *)((int)_Src_00 + 2),2);
 strcat_s(_Dst,100,local_6c);
 ```
-By the function arguments, we can tell that `FUN_100010a0` is likely `sprintf`. It seems to be rearranging the characters of the input string, chopping it up and pasting it in different parts.
+By the function arguments, we can tell that `FUN_100010a0` is likely `sprintf`. It seems to be rearranging the characters of the input string, chopping it up and pasting it in different parts. 
 
 But what is the intended output string anyways?
 
@@ -242,7 +230,25 @@ where `H = '4304dfa8ce893becb10252ec78fcf5c2'`. Throwing _this_ into CrackStatio
 
 Hahaha. Very funny guys. Something to note here, however, is that the string `NEVERGONNAGIVEYOUUP` is 19 characters long, whereas the input is 20 characters long.
 
-Reversing the code painstakingly, we have that the input string looks like `OUGONNAUP_NEVERYGIVE`, where some character goes into that blank. Let's just put some random character there and see what happens.
+Let's work backwards now:
+```c
+FUN_100010a0(local_6c,100,"%s",(char) puVar2 ); // puVar2 corresponds to param1[15:20] = "NEVER"
+strcat_s(_Dst,100,local_6c);
+FUN_100010a0(local_6c,100,"%s",(char) _Src + '\x02'); // _Src + '\x02' corresponds to param1[2:5] = "GON"
+strcat_s(_Dst,100,local_6c);
+strncpy_s(local_6c,100,(char *)_Src_00,2); // 2 chars from _Src_00 corresponds to param1[5:7] = "NA"
+strcat_s(_Dst,100,local_6c);
+FUN_100010a0(local_6c,100,"%s",(char)puVar3 + '\x01'); // puVar3 + '\x01' corresponds to param1[16:20] = "GIVE"
+strcat_s(_Dst,100,local_6c);
+FUN_100010a0(local_6c,100,"%c",*(undefined *)puVar3); // puVar3 corresponds to param1[15] = "Y"
+strcat_s(_Dst,100,local_6c);
+strncpy_s(local_6c,100,(char *)_Src,2); // 2 chars from _Src corresponds to param1[0:2] = "OU"
+uVar5 = SUB41(_Src,0);
+strcat_s(_Dst,100,local_6c);
+strncpy_s(local_6c,100,(char *)((int)_Src_00 + 2),2); // 2 chars from _Src_00+2 corresponds to param1[7:9] = "UP"
+strcat_s(_Dst,100,local_6c);
+```
+So our input string looks like `OUGONNAUP_NEVERYGIVE`, where some character goes into that blank. Let's just put some random character there and see what happens.
 
 ```
 You have come across a secret chest.
