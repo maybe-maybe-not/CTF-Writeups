@@ -5,9 +5,9 @@ by Halogen
 [Schematics.png](./assets/schematics.png)
 ## Solution
 ![Schematics.png](./assets/schematics.png)
-Wow its a physics problem, so its time to put our **PHYSICS BRAINS** to the test. We will now define the following variables so that we could plug it into our lord and saviour `sympy` to do the math for us. There is absolutely no reason to do the math by hand (I'm looking at you @)
+Wow its a physics problem, so its time to put our **PHYSICS BRAINS** to the test. We will now define the following variables so that we could plug it into our lord and saviour `sympy` to do the math for us. There is absolutely no reason to do the math by hand (I'm looking at you @ilovemrt2222)
 
-$$
+```math
 \begin{aligned}
 V   &=\ \text{The final voltage (Shown above as \_VOLTAGE)}\\
 V_D &=\ \text{Voltage Difference across Quantum Core }(V_a-V_b)\\
@@ -19,7 +19,8 @@ R_2 &=\ \text{Precision Resistor Resistance}\\
 R_3 &=\ \text{Modifiable Resistor Resistance}\\
 R_4 &=\ \text{Unknown Resistor Resistance}
 \end{aligned}
-$$
+```
+
 Using the well known Ohm's Law ($V=IR$ across a resistor), and the fact that resistors in series have their equivalent voltage as their sum ($R_1 + R_2 = R_{total}$) we get 2 equations for each branch
 
 $V = I_1(R_1 + R_3) = I_1(k\times I_1 + R_3)$
