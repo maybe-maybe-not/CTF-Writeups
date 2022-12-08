@@ -21,7 +21,7 @@ R_4 &=\ \text{Unknown Resistor Resistance}
 \end{aligned}
 ```
 
-Using the well known Ohm's Law ($V=IR$ across a resistor), and the fact that resistors in series have their equivalent voltage as their sum ($R_1 + R_2 = R_{total}$) we get 2 equations for each branch
+Using the well known Ohm's Law ($V=IR$ across a resistor), and the fact that resistors in series have their equivalent voltage as their sum ( $R_1 + R_2 = R_{total}$ ) we get 2 equations for each branch
 
 $V = I_1(R_1 + R_3) = I_1(k\times I_1 + R_3)$
 $V = I_2(R_2 + R_4)$
