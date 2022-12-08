@@ -27,7 +27,7 @@ Incorrect passcode! Exiting...
 ```
 Interesting. Opening it in ghidra, we notice some strings alluding to PyInstaller
 
-![ghidra](ghidra.png)
+![ghidra](assets/ghidra.png)
 
 We thus run [PyInstaller Extractor](https://github.com/extremecoders-re/pyinstxtractor) to get the `pyc` files and subsequently run them through [uncompyle6](https://pypi.org/project/uncompyle6/) in order to obtain some readable `py` files.
 
@@ -53,7 +53,7 @@ To even progress with the challenge, we first have to get an md5 hash which cont
 
 A few hours after first starting on this challenge, I noticed a suspicious file that was included in the decompilation result named `a86850`. 
 
-![hash_file](hash_file_000.png)
+![hash_file](assets/hash_file_000.png)
 
 Another line of code alludes to this being the first few characters of the intended md5 hash:
 
@@ -63,11 +63,11 @@ os.chdir(os.path.dirname(APPPATH))
 ```
 Thus, we had the hash `a86850deb2742ec3cb41518e26aa2d89`. Throwing it into CrackStation...
 
-![crackstation](crackstation.png)
+![crackstation](assets/crackstation.png)
 
 Yikes. Googling the hash, however, gives some interesting results.
 
-![google](google.png)
+![google](assets/google.png)
 
 Could `qwerty` be it? 
 
@@ -164,7 +164,7 @@ bee: PE32 executable (DLL) (GUI) Intel 80386, for MS Windows
 ```
 Nice, let's just throw _this_ into ghidra and see what the `a86850` function is.
 
-![ghidra](ghidra2.png)
+![ghidra](assets/ghidra2.png)
 
 Yuck. Let's step through the code.
 
@@ -227,7 +227,7 @@ if not r or m(r).hexdigest() != H:
 ```
 where `H = '4304dfa8ce893becb10252ec78fcf5c2'`. Throwing _this_ into CrackStation...
 
-![crackstation again](crackstation2.png)
+![crackstation again](assets/crackstation2.png)
 
 Hahaha. Very funny guys. Something to note here, however, is that the string `NEVERGONNAGIVEYOUUP` is 19 characters long, whereas the input is 20 characters long.
 
