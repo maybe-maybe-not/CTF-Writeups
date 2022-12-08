@@ -1,6 +1,7 @@
 # Secret Chest of Rick
 by scuffed and m0n0valu3nce
 > Problem Description
+> 
 > The Secret Chest of Rick contains unfathomable secret that may allow you to turn the tide in times of need. You may, however, incur the wrath of Rick if you fail to decipher the code.
 > 
 > Help Jaga to uncover secret of the chest.
