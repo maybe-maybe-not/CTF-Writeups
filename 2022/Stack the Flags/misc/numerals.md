@@ -59,7 +59,7 @@ print(string) # b'[[-3.95, -0.1], [-0.975, -1.1], [-0.95, -2.075], [-1.9, -1.7],
 ```
 Oh. There's the json. That was pretty straight forward. Let's dump it into a different file and pass it into the program.
 
-![so cool](assets/cool_flag.png)
+![so cool](assets/cool_flag.gif)
 
 That. Was. Epic.
 
