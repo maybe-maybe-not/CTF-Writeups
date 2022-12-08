@@ -317,7 +317,7 @@ INPUTTING: b'OUGONNAUPdNEVERYGIVE'
 INPUTTING: b'OUGONNAUPANEVERYGIVE'
 b"\x1b[?25h\x1b[?25lHere's your flag: STF22{s4y-g00d-by3}\r\n"
 ```
-Yipee!!!!
+[Yipee!!!!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
 
 
 Flag: `STF22{s4y-g00d-by3}`
