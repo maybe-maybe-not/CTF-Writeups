@@ -1,7 +1,7 @@
 # extended
 by Halogen
-> Problem Description
+> Seems like an extensive authentication system
 ## Solution
-Some Methods, maybe images inserted under `./assets`
 
-Flag: `CTF{m4y83_m4y83_n07}`
+
+Flag: `STF22{h4sh_l3ngth_1nj3ct10n_1s_4w3s0m3}`

@@ -12,15 +12,14 @@ After creating an account and logging in, we find a cookie `FLASK_SESSION` and w
 }
 ```
 We read up online and realised `flask-unsign` exists, allowing us to run through a word-list of possible secret key's but in the end... no flag. After many many attempts of breaking, forging, stealing flask cookies from the cookie jar and spending a day trying to change uid to access **BOB**'s account, we finally tried reading the source code. Here we find the real exploit.
-
 ### Insecure Direct Object Reference (IDOR)
 Looking through the code we find this very curious snippet in `app.py` in the `/fastapi/<apiname>` function route.
 ```python
-if(uid == str(current_user.user["id"]) or current_user.user["isadmin"]):    # Authorisation check to prevent IDOR.
-        # pass the url behind to fastapi
-fullurl = request.url
-path = fullurl.replace(request.url_root, "").replace("fastapi", "")
-forwardurl = "http://localhost:8000" + path
+if(uid == str(current_user.user["id"]) or current_user.user["isadmin"]): # Authorisation check to prevent IDOR.
+	# pass the url behind to fastapi
+	fullurl = request.url
+	path = fullurl.replace(request.url_root, "").replace("fastapi", "")
+	forwardurl = "http://localhost:8000" + path
 ```
 It seems as though the uid is checked before the filter and our path is directly forwarded to `localhost:8000` (fastapi server). On further inspection, it seems uid is the retrieved using `request.args.get("uid")`. What if we passed another parameter that evaluated to `uid` after the `fullurl.replace`? Well we would have solved the problem, it passes the if statement fine and also allows us to set any uid we want!
 

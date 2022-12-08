@@ -6,7 +6,7 @@ This had 0 solves until the admin dropped their insane hint
 ![hint.png|center](./assets/hint.png)
 <center>🙏 Thank you @bbbb 🙏</center>
 
-So after being given the compare string code, Woah! Look at all the asyncio.sleep. Wonder if we could exploit that?🤔oh we could, with a side channel attack called timing attack!
+Woah! Look at all the asyncio.sleep. Wonder if we could exploit that?🤔oh we could, with a side channel attack called timing attack!
 
 The idea is we brute force our admin and password smartly, by checking the time it took to process our wrong username/password. If it took longer, it was probably more "correct". First we brute force the length of the string as that is checked first, then each individual character, starting from the front.
 
@@ -46,4 +46,6 @@ while i != len(pwd):
 	i += 1
 ```
 
-After using the given username and password we get the flag
+After using the retrieved username and password we get the flag 🚩!
+
+Flag: `STF22{Play_OpenRA_d44149ca5ec9b17d}`
