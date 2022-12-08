@@ -303,7 +303,7 @@ for v in valid:
 
 Letting it run...
 
-```
+```sh
 ❯ python rick.py
 [+] Starting local process '/sbin/wine': pid 84997
 INPUTTING: b'OUGONNAUPaNEVERYGIVE'
