@@ -1,8 +1,6 @@
 # Blogpost
 by Halogen
 > Jaga created an internal social media platform for the company, can you leak anyone's information?
-## Provided Files
-[Link under assets](./assets/)
 ## Solution
 First step, look through the code. This is where we observe `bot.js`, a curious little thing that will be the downfall of Jaga's social media platform. This script basically logs in as admin, sets the flag as a cookie and then visit our blog. How wonderful, sounds like a Cross Site Scripting attack (XSS).
 
@@ -65,5 +63,6 @@ xhr.send(data);
 ```
 
 And wow, it runs and we get an alert on visiting our blog. Now we just simply replace `alert(1)` with our code from above and the admin gives us the flag yet again in the form of a post.
-![[blogpost2.png]]
+![](./assets/blogpost2.png)
+
 flag: `STF22{cl0uDfl4r3!!_@nd_@ngu1ar_ar3_de_b35+}`
