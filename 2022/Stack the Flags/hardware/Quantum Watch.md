@@ -2,9 +2,9 @@
 by Halogen
 > Problem Description
 ## Provided Files
-[Schematics.png](./assets/Schematics.png)
+[Schematics.png](./assets/schematics.png)
 ## Solution
-![Schematics.png](./assets/Schematics.png)
+![Schematics.png](./assets/schematics.png)
 Wow its a physics problem, so its time to put our **PHYSICS BRAINS** to the test. We will now define the following variables so that we could plug it into our lord and saviour `sympy` to do the math for us. There is absolutely no reason to do the math by hand (I'm looking at you @)
 
 $$
