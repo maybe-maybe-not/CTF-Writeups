@@ -31,7 +31,7 @@ SHOP = {
 }
 ```
 
-We can see the available weapons to buy, the goal of the challenge seems clear, we must somehow buy the flagsword, which costs 5 gold and 0 loyalty points.
+In the code, we can see the available weapons to buy, and the goal of the challenge seems clear. We must somehow buy the flagsword, which costs 5 gold and 0 loyalty points.
 
 First we have to create a new customer through the /customer/new endpoint which gives us a customer_id to use to interact with the other end points
 ```py
@@ -78,7 +78,7 @@ def weapon_from_name(weapons, name):
     return None
 ```
 
-I initially thought we had to find some way to reactivate the loyalty system, and somehow get enough gold to buy a bunch of items to get enough loyalty to become an exclusive customer, so I decided to dig a bit deeper into the /buy endpoint, as it was the only realistic endpoint to have some input vulnerability. The first thing that caught my eye was that we could buy a list of items, I realised I didn't actually know how to supply a list of items into a flask api endpoint so after a bit of searching, I found out that you just had to repeat the same query parameter again in the URL
+I initially thought we had to find some way to reactivate the loyalty system, and somehow get enough gold to buy a bunch of items to get enough loyalty to become an exclusive customer, so I decided to dig a bit deeper into the /buy endpoint, as it was the only realistic endpoint to have some input vulnerability. The first thing that caught my eye was that we could buy a list of items, I realised I didn't actually know how to supply a list of items into a Flask API endpoint so after a bit of searching, I found out that you just had to repeat the same query parameter again in the URL
 ```py
 @app.get("/buy")
 def buy_item(customer_id="", items: list[str] | None = Query(default=[])):
