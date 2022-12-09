@@ -76,5 +76,5 @@ with shelve.open('keebdb') as db:
 ```
 In the shelve database, the key is stored in the text field, this field is what is used to generate the heatmap design, going to view our heatmap using Jaga's token, we see the following image:
 ![image](https://user-images.githubusercontent.com/42673064/206584277-26999b94-c35a-456e-a5d8-1faff9132888.png)
-I then traced the highlighted keys on my own keyboard to get the letters "asertghnil". Now I had to find the correct permutation of these letters to use as the key. I fed these letters into a unscrambler website and the possible candidates it gave me was either "Earthlings" or "Slathering". Earthling was the correct word and the flag returned was `STF22{h34t_k3yb04rD}`, giving me first blood on this challenge in my category.
+I then traced the highlighted keys on my own keyboard to get the letters "asertghnil". Now I had to find the correct permutation of these letters to use as the key. I fed these letters into a unscrambler website and the possible candidates it gave me was either "Earthlings" or "Slathering". Earthlings was the correct word and the flag returned was `STF22{h34t_k3yb04rD}`, giving me first blood on this challenge in my category.
 
