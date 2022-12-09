@@ -10,7 +10,7 @@
 
 > Access the weapon shop API at: http://host:port
 
-The Blacksmith is a challenge that requires us to interact with a shop through a flask API. This shop has a scrapped loyalty challenge that supposedly prevent's us from gaining loyalty by buying some items. The database for the shop is a simple dictionary, storing the customers and items available for purchase.
+The Blacksmith is a challenge that requires us to interact with a shop through a flask API. This shop has a scrapped loyalty system that supposedly prevents us from gaining loyalty by buying items. The database for the shop is a simple dictionary, storing the customers and items available for purchase.
 ```py
 Weapon = namedtuple("Weapon", ["name", "price", "loyalty_points"])
 RestrictedLoyalty = namedtuple("RestrictedLoyalty", ["fame", "point_history"])
